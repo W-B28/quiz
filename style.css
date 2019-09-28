@@ -1,0 +1,49 @@
+:root {
+  background-color: #191970;
+  font-size: 80%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: font-family: 'Turret Road', cursive;
+  padding: 0;
+  margin: 0;
+}
+
+div.container-fluid {
+  background-color: #191970;
+  font-size: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.card {
+  width: 65vw;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between;
+  max-width: 40rem;
+  min-width: 319px;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: dotted black 0.1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.btn:hover {
+  border: 0.1rem solid #5B5B5B;
+  cursor: pointer;
+  box-shadow: 5px 10px 8px #5B5B5B;
+}
+
+div#quiz {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+}
