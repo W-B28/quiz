@@ -1,3 +1,9 @@
+// TO DO: -CHANGE CLICK EVENT TO WHOLE CHOICE CONTAINER
+// BUTTON STYLING WIDTH FOR ANSWERS PLUS FLOATING LEFT & right
+// END SCREEN DESIGN AND FUNCTION DEFINITION
+// MAKE START SCREEN AND QUIZ IN ONE HTML FILE
+
+
 const question = document.getElementById('q-1');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
 
@@ -37,8 +43,8 @@ let questions = [
   },
 ];
 
-const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 3;
+// const CORRECT_BONUS = 10;
+// const MAX_QUESTIONS = 3;
 
 startGame = () => {
   questionCounter = 0;
@@ -48,11 +54,10 @@ startGame = () => {
 };
 
 getNewQuestion = () => {
-questionCounter++ ;
 const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
   question.innerText = currentQuestion.question;
-
+$(".choice-container").css("background","white");
   choices.forEach( choice => {
     const number = choice.dataset['number'];
     choice.innerText = currentQuestion['choice' + number];
@@ -60,18 +65,37 @@ const questionIndex = Math.floor(Math.random() * availableQuestions.length);
 
   availableQuestions.splice(questionIndex, 1);
 
-  acceptingAnswers = true;
+  // acceptingAnswers = true;
+  questionCounter++ ;
+
 };
+
+// DEFINE HERE A function for end screen generation
 
 choices.forEach( choice => {
   choice.addEventListener('click', e => {
-    if(!acceptingAnswers) return;
-
-    acceptingAnswers = false;
+    // if(!acceptingAnswers) return;
+// setTimeOut to delay
+    // acceptingAnswers = false;
     const selectedChoice = e.target;
     const selectedAnswer = selectedChoice.dataset['number'];
-    console.log(selectedAnswer);
+    if(selectedAnswer == currentQuestion.answer) {
+      score++;
+      $("#" + selectedAnswer).css("background-color","green");
+    } else {
+      $("#" + selectedAnswer).css("background-color","red");
+    }
+    setTimeout(function(){
+      if( availableQuestions.length === 0 ) {
+        console.log('Quiz Ended');
+        // function to go to end screen
+      } else {
+        getNewQuestion();
+      }
+    }, 3000);
+
   })
+
 });
 
 startGame();
