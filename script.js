@@ -1,10 +1,9 @@
-// TO DO: -CHANGE CLICK EVENT TO WHOLE CHOICE CONTAINER
-// BUTTON STYLING WIDTH FOR ANSWERS PLUS FLOATING LEFT & right
+// TO DO:
 // END SCREEN DESIGN AND FUNCTION DEFINITION
 // MAKE START SCREEN AND QUIZ IN ONE HTML FILE
 
 
-const question = document.getElementById('q-1');
+const question = document.getElementById('root-question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
 
 let currentQuestion = {};
@@ -81,7 +80,7 @@ choices.forEach( choice => {
     const selectedAnswer = selectedChoice.dataset['number'];
     if(selectedAnswer == currentQuestion.answer) {
       score++;
-      $("#" + selectedAnswer).css("background-color","green");
+      $("#" + selectedAnswer).css("background-color","ForestGreen");
     } else {
       $("#" + selectedAnswer).css("background-color","red");
     }
@@ -92,10 +91,8 @@ choices.forEach( choice => {
       } else {
         getNewQuestion();
       }
-    }, 3000);
-
+    },150);
   })
-
 });
 
 startGame();
