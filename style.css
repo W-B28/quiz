@@ -1,5 +1,5 @@
 :root {
-  background-color: #191970;
+  background-color: #1B1B1B;
 }
 
 *, *::before, *::after {
@@ -10,7 +10,7 @@
 }
 
 div.container-fluid {
-  background-color: #191970;
+  background-color: #1B1B1B;
   font-size: 50%;
   display: flex;
   justify-content: center;
@@ -18,17 +18,16 @@ div.container-fluid {
 }
 
 div.card {
-  width: 68vw;
-  height: 55em;
+  width: 75vw;
+  min-height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: space-between;
-  max-width: 40rem;
-  min-width: 319px;
-  margin: auto;
+  margin-bottom: 1em;
   border-radius: 10px;
   border: dotted black 0.1rem;
+  padding-bottom: 2.5em;
 }
 
 .hidden {
@@ -46,7 +45,7 @@ div#quiz {
   justify-content: space-around;
   grid-row-gap: 1.5em;
   align-content: center;
-  margin-bottom:  0 auto;
+  margin-bottom: 10px;
   padding-left: 1em;
   padding-right: 1em;
 }
@@ -55,10 +54,26 @@ div#quiz {
   display: flex;
   justify-content: center;
   cursor: pointer;
-  border: solid blue 1px;
-  color: blue;
+  border: solid silver 1px;
+  color: black;
   border-radius: 5px;
   padding: 1em;
-  margin: 0;
-  font-size: 1.6em;
+  font-size: 1.8em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.correct {
+  background-color: ForestGreen;
+}
+
+.incorrect {
+  background-color: red;
+}
+
+#hud {
+  display: block;
+  color: LightGray;
+  justify-content: space-around;
+  font-size: 1.75em !important;
 }

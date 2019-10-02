@@ -5,6 +5,9 @@
 
 const question = document.getElementById('root-question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
+const scoreDisplay = document.getElementById('scoreDisplay');
+const questionCounterDisplay = document.getElementById('questionCounterDisplay');
+
 
 let currentQuestion = {};
 let acceptingAnswers = false;
@@ -42,14 +45,16 @@ let questions = [
   },
 ];
 
-// const CORRECT_BONUS = 10;
-// const MAX_QUESTIONS = 3;
+const CORRECT_BONUS = 10;
+let MAX_QUESTIONS = 3;
+// Make MAX_QUESTIONS selectable by user at start
+let TIME_BONUS;
+let PEFECTION_BONUS;
 
 startGame = () => {
   questionCounter = 0;
   score = 0;
   availableQuestions = [...questions];
-  console.log(availableQuestions);
 };
 
 getNewQuestion = () => {
@@ -64,8 +69,9 @@ $(".choice-container").css("background","white");
 
   availableQuestions.splice(questionIndex, 1);
 
-  // acceptingAnswers = true;
+  acceptingAnswers = true;
   questionCounter++ ;
+  questionCounterDisplay.innerText = questionCounter + ' / ' + MAX_QUESTIONS;
 
 };
 
@@ -73,27 +79,54 @@ $(".choice-container").css("background","white");
 
 choices.forEach( choice => {
   choice.addEventListener('click', e => {
-    // if(!acceptingAnswers) return;
+    if(!acceptingAnswers) return;
 // setTimeOut to delay
-    // acceptingAnswers = false;
+    acceptingAnswers = false;
+
     const selectedChoice = e.target;
     const selectedAnswer = selectedChoice.dataset['number'];
+
+    const classToApply =
+      selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect';
+
+      if(classToApply === 'correct') {
+        incrementScore(CORRECT_BONUS);
+      }
+
+    // selectedAnswer.parentElement.classList.add(classToApply)
+
+
     if(selectedAnswer == currentQuestion.answer) {
-      score++;
+
       $("#" + selectedAnswer).css("background-color","ForestGreen");
+      // use JS to dynamically create a "feedback div" that includes
+      // green checkmark with short answer description plus reference (+link list to archive for review?)
     } else {
       $("#" + selectedAnswer).css("background-color","red");
+      // use JS to dynamically create a "feedback div" that includes
+      // red X with short answer description plus reference (+link to archive list for review?)
     }
     setTimeout(function(){
-      if( availableQuestions.length === 0 ) {
+      // for a setTimeOut alotted amount of time( to prevent multiple selectedAnswers)
+      if( availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         console.log('Quiz Ended');
-        // function to go to end screen
+        //  go to end screen
+        // return window.location.assign('endgame.html');
+        // tally high score
+          // if top 10 prompt user for ID info to record best performances
+          // refer user to list of references / short descriptions of submitted answers
       } else {
+
         getNewQuestion();
       }
-    },150);
+    }, 1000);
   })
 });
+
+incrementScore = num => {
+  score += num;
+  scoreDisplay.innerText = score;
+}
 
 startGame();
 getNewQuestion();
