@@ -6,7 +6,7 @@
 const question = document.getElementById('root-question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
 const scoreDisplay = document.getElementById('scoreDisplay');
-const questionCounterDisplay = document.getElementById('questionCounterDisplay');
+const progressBarDisplay = document.getElementById('progessBar');
 
 
 let currentQuestion = {};
@@ -58,6 +58,7 @@ startGame = () => {
 };
 
 getNewQuestion = () => {
+  
 const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
   question.innerText = currentQuestion.question;
@@ -71,7 +72,8 @@ $(".choice-container").css("background","white");
 
   acceptingAnswers = true;
   questionCounter++ ;
-  questionCounterDisplay.innerText = questionCounter + ' / ' + MAX_QUESTIONS;
+  let progressPercent = progressBarDisplay.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
+  progressBarDisplay.innerText = '%';
 
 };
 
@@ -80,7 +82,7 @@ $(".choice-container").css("background","white");
 choices.forEach( choice => {
   choice.addEventListener('click', e => {
     if(!acceptingAnswers) return;
-// setTimeOut to delay
+
     acceptingAnswers = false;
 
     const selectedChoice = e.target;

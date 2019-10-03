@@ -46,8 +46,7 @@ div#quiz {
   grid-row-gap: 1.5em;
   align-content: center;
   margin-bottom: 10px;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: 1em;
 }
 
 .choice-container {
@@ -75,5 +74,9 @@ div#quiz {
   display: block;
   color: LightGray;
   justify-content: space-around;
-  font-size: 1.75em !important;
+  font-size: 1.75em;
+}
+
+#progressBar {
+  /* width: 0%; */
 }
