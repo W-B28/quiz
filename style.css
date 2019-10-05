@@ -15,10 +15,15 @@ div.container-fluid {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 10em;
+  padding-bottom: 10em;
+  padding-left: 15em;
+  padding-right: 15em;
 }
 
 div.card {
-  width: 75vw;
+  min-width: 60vw;
+  max-width: 75vw;
   min-height: 70vh;
   display: flex;
   justify-content: center;
@@ -27,7 +32,6 @@ div.card {
   margin-bottom: 1em;
   border-radius: 10px;
   border: dotted black 0.1rem;
-  padding-bottom: 2.5em;
 }
 
 .hidden {
@@ -47,6 +51,8 @@ div#quiz {
   align-content: center;
   margin-bottom: 10px;
   padding: 1em;
+  padding-bottom: 2.5em;
+
 }
 
 .choice-container {

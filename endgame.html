@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Turret+Road:500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" type="text/css">
+
+  <title>Congratulations!</title>
+
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="card">
+    <h1 id="finalScore">Congratulations! You Scored 1000!</h1>
+    <h2 id="finalScore">But are you a National Anesthesia Jedi Master or a Padawan?</h2>
+    <h3 id="finalScore">Submit your info to the Leaderboards and find out! </h3>
+    <br><br>
+
+    <form action="/action_page.php">
+      <input
+        type="text"
+        name="username"
+        id="usernameForm"
+        placeholder="Username">
+
+          <input list="providers" id="providersForm" placeholder="Professional Title">
+          <datalist id="providers">
+            <option value="C-AA">
+            <option value="CRNA">
+            <option value="Attending Anesthesiologist">
+            <option value="Resident Anesthesiologist">
+            <option value="AA-S">
+            <option value="SRNA">
+            <option value="Medical Student">
+            <option value="Intern">
+            <option value="Other(Type Title In)">
+          </datalist>
+          <input name="programName" id="programNameForm" type="text" placeholder="Current Program / Residency / Alma Matter">
+          <br><br><br><br>
+          <div class="submitScores text-center">
+            <input type="submit" class="btn btn-outline-dark">
+          </div>
+        </form>
+    </div>
+  </div>
+
+  <script src="https://kit.fontawesome.com/daa0aaa999.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+  <script src="end.js"></script>
+
+</body>
+</html>

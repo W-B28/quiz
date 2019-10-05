@@ -58,11 +58,12 @@ startGame = () => {
 };
 
 getNewQuestion = () => {
-  
+
 const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
   question.innerText = currentQuestion.question;
 $(".choice-container").css("background","white");
+
   choices.forEach( choice => {
     const number = choice.dataset['number'];
     choice.innerText = currentQuestion['choice' + number];
@@ -111,7 +112,7 @@ choices.forEach( choice => {
     setTimeout(function(){
       // for a setTimeOut alotted amount of time( to prevent multiple selectedAnswers)
       if( availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-        console.log('Quiz Ended');
+        return window.location.assign('endgame.html');
         //  go to end screen
         // return window.location.assign('endgame.html');
         // tally high score
