@@ -48,7 +48,17 @@ let questions = [
 const CORRECT_BONUS = 10;
 let MAX_QUESTIONS = 3;
 // Make MAX_QUESTIONS selectable by user at start
+
+// Generate a clock to count
+
+let time = 0;
+// Set TIME_BONUS multiplier for time added to the clock
+// TIME_BONUS should be a higher higher multipler for lower timed scores,
+// and lower multiplier for higher timed scores
 let TIME_BONUS;
+
+// set a fixed bonus to score for answering all the questions correct
+
 let PEFECTION_BONUS;
 
 startGame = () => {
@@ -62,23 +72,25 @@ getNewQuestion = () => {
 const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
   question.innerText = currentQuestion.question;
-$(".choice-container").css("background","white");
+  $(".choice-container").css("background","white");
 
   choices.forEach( choice => {
     const number = choice.dataset['number'];
     choice.innerText = currentQuestion['choice' + number];
   });
 
+// splice currentQuestion out of availableQuestions pool to prevent repeats
   availableQuestions.splice(questionIndex, 1);
 
   acceptingAnswers = true;
   questionCounter++ ;
+
+  // increment progessBar percent for each question attempted
   let progressPercent = progressBarDisplay.style.width = `${(questionCounter / MAX_QUESTIONS) * 100}%`;
   progressBarDisplay.innerText = '%';
 
 };
 
-// DEFINE HERE A function for end screen generation
 
 choices.forEach( choice => {
   choice.addEventListener('click', e => {
@@ -109,15 +121,15 @@ choices.forEach( choice => {
       // use JS to dynamically create a "feedback div" that includes
       // red X with short answer description plus reference (+link to archive list for review?)
     }
+      // for a setTimeOut (to prevent multiple selectedAnswers)
+
     setTimeout(function(){
-      // for a setTimeOut alotted amount of time( to prevent multiple selectedAnswers)
       if( availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-        return window.location.assign('endgame.html');
         //  go to end screen
-        // return window.location.assign('endgame.html');
+        return window.location.assign('endgame.html');
         // tally high score
-          // if top 10 prompt user for ID info to record best performances
-          // refer user to list of references / short descriptions of submitted answers
+        // if top 10 prompt user for ID info to record best performances
+        // refer user to list of references / short descriptions of submitted answers
       } else {
 
         getNewQuestion();

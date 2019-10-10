@@ -83,6 +83,24 @@ div#quiz {
   font-size: 1.75em;
 }
 
-#progressBar {
-  /* width: 0%; */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input#providersForm,
+input#programNameForm,
+input#usernameForm  {
+  width: 160%;
+  text-align: center;
+  margin: 0.5em;
+  padding: 0.75em;
+  font-size: 1.6em;
+  border: none;
+  box-shadow: 0.2em 0.4em 0.6em #888888;
+}
+
+input::placeholder {
+  color: #888888;
 }

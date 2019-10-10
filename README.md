@@ -1,2 +1,2 @@
 # quiz
-Question and answer application
+Question and answer submission for trivia game application

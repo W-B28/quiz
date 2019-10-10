@@ -11,25 +11,24 @@
   <link href="https://fonts.googleapis.com/css?family=Turret+Road:500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" type="text/css">
 
-  <title>Congratulations!</title>
+  <title>Success!</title>
 
 </head>
 <body>
   <div class="container-fluid">
-    <div class="card">
-    <h1 id="finalScore">Congratulations! You Scored 1000!</h1>
-    <h2 id="finalScore">But are you a National Anesthesia Jedi Master or a Padawan?</h2>
-    <h3 id="finalScore">Submit your info to the Leaderboards and find out! </h3>
+    <div class="card endgame">
+    <h1 id="finalScore" class="text-center">Congratulations! You Scored 1000!</h1>
+    <h3 id="finalScore" class="text-center">Submit your info to the Leaderboards to find out where you stand Nationally! </h3>
     <br><br>
 
-    <form action="/action_page.php">
+    <form action="/action_page.php" class="form">
       <input
         type="text"
         name="username"
         id="usernameForm"
-        placeholder="Username">
+        placeholder="Name">
 
-          <input list="providers" id="providersForm" placeholder="Professional Title">
+          <input list="providers" id="providersForm" class="form" placeholder="Professional Title">
           <datalist id="providers">
             <option value="C-AA">
             <option value="CRNA">
@@ -41,12 +40,12 @@
             <option value="Intern">
             <option value="Other(Type Title In)">
           </datalist>
-          <input name="programName" id="programNameForm" type="text" placeholder="Current Program / Residency / Alma Matter">
-          <br><br><br><br>
-          <div class="submitScores text-center">
-            <input type="submit" class="btn btn-outline-dark">
-          </div>
-        </form>
+          <input name="programName" id="programNameForm"class="form" type="text" placeholder="Current Program / Residency / Alma Matter?">
+          <br><br>
+
+          <input type="submit" id="saveScoreBtn" onlick="saveHighScore(event)"class="btn btn-outline-success mb-1" value="Submit Score!"/>
+        <a class="playAgain btn btn-outline-info mt-2 mb-4" href="#">Play Again!</a>
+      </form>
     </div>
   </div>
 
@@ -54,7 +53,7 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script src="script.js"></script>
+  <!-- <script src="script.js"></script> -->
   <script src="end.js"></script>
 
 </body>
