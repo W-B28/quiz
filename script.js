@@ -125,7 +125,7 @@ choices.forEach( choice => {
 
     setTimeout(function(){
       if( availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-        //  go to end screen
+        localStorage.setItem('mostRecentScore', score);
         return window.location.assign('endgame.html');
         // tally high score
         // if top 10 prompt user for ID info to record best performances

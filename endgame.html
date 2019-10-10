@@ -17,8 +17,8 @@
 <body>
   <div class="container-fluid">
     <div class="card endgame">
-    <h1 id="finalScore" class="text-center">Congratulations! You Scored 1000!</h1>
-    <h3 id="finalScore" class="text-center">Submit your info to the Leaderboards to find out where you stand Nationally! </h3>
+    <h1 class="text-center">Congratulations! You Scored: <h1 id="finalScore" class="text-center"></h1></h1>
+    <h3 id="finalScoreExplain" class="text-center">Submit your info to find out where you stand Nationally! </h3>
     <br><br>
 
     <form action="/action_page.php" class="form">
@@ -43,8 +43,8 @@
           <input name="programName" id="programNameForm"class="form" type="text" placeholder="Current Program / Residency / Alma Matter?">
           <br><br>
 
-          <input type="submit" id="saveScoreBtn" onlick="saveHighScore(event)"class="btn btn-outline-success mb-1" value="Submit Score!"/>
-        <a class="playAgain btn btn-outline-info mt-2 mb-4" href="#">Play Again!</a>
+          <input type="submit" id="saveScoreBtn" onlick="saveHighScore(event)"class="btn btn-outline-success mb-1" value="Submit Score!" disabled/>
+          <a class="playAgain btn btn-outline-info mt-2 mb-4" href="#">Play Again!</a>
       </form>
     </div>
   </div>
