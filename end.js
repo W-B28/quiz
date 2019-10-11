@@ -10,13 +10,15 @@ const mostRecentScore = localStorage.getItem('mostRecentScore');
 const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 finalScore.innerText = mostRecentScore;
 
+const MAXIMUM_HIGHSCORES = 5;
+
 
 username.addEventListener('keyup', () => {
   saveScoreBtn.disabled = !username.value
 
   // ??? || saveScoreBtn.disabled = !providersForm.value;
 
-  //make providersType && programName required;
+  //make providers && programName required;
   // && !providers.value && !programName.value;
 
 });
@@ -31,7 +33,13 @@ saveHighScore = e => {
     program: programName.value
   };
   highScores.push(score);
-  console.log(highScores);
+  highScores.sort( (a,b) =>  b.score - a.score);
+  highScores.splice(5);
+
+localStorage.setItem('highScores', JSON.stringify(highScores));
+
+// GO to leaderboard later then reassign to index from leaderboard
+window.location.assign('index.html')
 };
 
 saveScoreBtn.addEventListener("click", saveHighScore);
