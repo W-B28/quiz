@@ -45,7 +45,7 @@ let questions = [
   },
 ];
 
-const CORRECT_BONUS = 10;
+const CORRECT_BONUS = 100;
 let MAX_QUESTIONS = 3;
 // Make MAX_QUESTIONS selectable by user at start
 
@@ -53,13 +53,17 @@ let MAX_QUESTIONS = 3;
 
 let time = 0;
 // Set TIME_BONUS multiplier for time added to the clock
-// TIME_BONUS should be a higher higher multipler for lower timed scores,
+// TIME_BONUS should be a higher multipler for lower timed scores,
 // and lower multiplier for higher timed scores
+//
 let TIME_BONUS;
 
 // set a fixed bonus to score for answering all the questions correct
 
 let PEFECTION_BONUS;
+
+// set a consecutive correct questions bonus
+let CONSECUTIVE_CORRECT_BONUS;
 
 startGame = () => {
   questionCounter = 0;
@@ -126,10 +130,11 @@ choices.forEach( choice => {
     setTimeout(function(){
       if( availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
         localStorage.setItem('mostRecentScore', score);
-        return window.location.assign('endgame.html');
-        // tally high score
+        // tally bonuses to high score
         // if top 10 prompt user for ID info to record best performances
         // refer user to list of references / short descriptions of submitted answers
+        return window.location.assign('endgame.html');
+
       } else {
 
         getNewQuestion();
@@ -144,4 +149,6 @@ incrementScore = num => {
 }
 
 startGame();
+// getting error when restart game and getNewQuestion() is called when questionIndex is null
+ //add eventlistener on play again button??? 
 getNewQuestion();
