@@ -10,6 +10,8 @@ const mostRecentScore = localStorage.getItem('mostRecentScore');
 const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
 finalScore.innerText = mostRecentScore;
 
+console.log(highScores);
+
 const MAXIMUM_HIGHSCORES = 5;
 
 
@@ -20,8 +22,9 @@ username.addEventListener('keyup', () => {
 
   //make providers && programName required;
   // && !providers.value && !programName.value;
-
+//
 });
+
 
 saveHighScore = e => {
   e.preventDefault();
@@ -39,7 +42,7 @@ saveHighScore = e => {
 localStorage.setItem('highScores', JSON.stringify(highScores));
 
 // GO to leaderboard later then reassign to index from leaderboard
-window.location.assign('index.html')
+window.location.assign('leaderboard.html')
 };
 
 saveScoreBtn.addEventListener("click", saveHighScore);
