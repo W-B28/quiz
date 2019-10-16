@@ -1,5 +1,5 @@
 :root {
-  background-color: #1B1B1B;
+  background-color: #181818;
 }
 
 *, *::before, *::after {
@@ -10,7 +10,8 @@
 }
 
 div.container-fluid {
-  background-color: #1B1B1B;
+  background-color: #181818;
+  color: #181818;
   font-size: 50%;
   display: flex;
   justify-content: center;

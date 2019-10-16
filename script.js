@@ -8,7 +8,6 @@ const choices = Array.from(document.getElementsByClassName('choice-text'));
 const scoreDisplay = document.getElementById('scoreDisplay');
 const progressBarDisplay = document.getElementById('progessBar');
 
-
 let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
@@ -66,6 +65,9 @@ let PEFECTION_BONUS;
 // set a consecutive correct questions bonus
 let CONSECUTIVE_CORRECT_BONUS;
 
+
+
+
 startGame = () => {
   questionCounter = 0;
   score = 0;
@@ -82,7 +84,6 @@ startGame = () => {
 
 
 getNewQuestion = () => {
-
 const questionIndex = Math.floor(Math.random() * availableQuestions.length);
   currentQuestion = availableQuestions[questionIndex];
   question.innerText = currentQuestion.question;
