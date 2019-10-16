@@ -22,9 +22,8 @@ div.container-fluid {
 }
 
 div.card {
-  min-width: 60vw;
-  max-width: 75vw;
-  min-height: 70vh;
+  min-width: 75vw;
+  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;

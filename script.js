@@ -52,10 +52,11 @@ let MAX_QUESTIONS = 3;
 // Generate a clock to count
 
 let time = 0;
+let timer;
 // Set TIME_BONUS multiplier for time added to the clock
 // TIME_BONUS should be a higher multipler for lower timed scores,
 // and lower multiplier for higher timed scores
-//
+// start temp variable for start and end time
 let TIME_BONUS;
 
 // set a fixed bonus to score for answering all the questions correct
@@ -68,8 +69,17 @@ let CONSECUTIVE_CORRECT_BONUS;
 startGame = () => {
   questionCounter = 0;
   score = 0;
+  time = 0;
   availableQuestions = [...questions];
+
+  let incrementTime = () => {
+    time++;
+    document.getElementById('time-display').innerHTML = time;
+  }
+  timer = setInterval(incrementTime, 900);
 };
+
+
 
 getNewQuestion = () => {
 
@@ -110,6 +120,8 @@ choices.forEach( choice => {
 
       if(classToApply === 'correct') {
         incrementScore(CORRECT_BONUS);
+        TIME_BONUS = CORRECT_BONUS + parseInt((1/time));
+        console.log(TIME_BONUS);
       }
 
     // selectedAnswer.parentElement.classList.add(classToApply)
@@ -129,6 +141,10 @@ choices.forEach( choice => {
 
     setTimeout(function(){
       if( availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+        let endTime = () => {
+          clearInterval(timer);
+        }
+
         localStorage.setItem('mostRecentScore', score);
         // tally bonuses to high score
         // if top 10 prompt user for ID info to record best performances
@@ -144,11 +160,11 @@ choices.forEach( choice => {
 });
 
 incrementScore = num => {
-  score += num;
+  score += Math.floor(num + (1/parseInt(time) * 50));
   scoreDisplay.innerText = score;
 }
 
 startGame();
 // getting error when restart game and getNewQuestion() is called when questionIndex is null
- //add eventlistener on play again button??? 
+ //add eventlistener on play again button???
 getNewQuestion();

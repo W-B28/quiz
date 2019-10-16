@@ -8,11 +8,11 @@ const finalScore = document.getElementById('finalScore')
 const mostRecentScore = localStorage.getItem('mostRecentScore');
 
 const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
-finalScore.innerText = mostRecentScore;
+if(finalScore.innerText!=null) {finalScore.innerText = mostRecentScore;}
 
 console.log(highScores);
 
-const MAXIMUM_HIGHSCORES = 5;
+const MAXIMUM_HIGHSCORES = 10;
 
 
 username.addEventListener('keyup', () => {
@@ -37,7 +37,7 @@ saveHighScore = e => {
   };
   highScores.push(score);
   highScores.sort( (a,b) =>  b.score - a.score);
-  highScores.splice(5);
+  highScores.splice(10);
 
 localStorage.setItem('highScores', JSON.stringify(highScores));
 
