@@ -12,12 +12,64 @@ let currentQuestion = {};
 let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
-let availableQuestions = [];
 
-let questions = [];
+let questions = [
+  {
+    question: "How many moons does Jupiter have?",
+    choice1: "4",
+    choice2: "14",
+    choice3: "27",
+    choice4: "67",
+    answer: 4
+  },
+
+  {
+    question: "What is the longest continuous time a human has spent in space?",
+    choice1: "167 days",
+    choice2: "114 days",
+    choice3: "437 days",
+    choice4: "713 days",
+    answer: 3
+  },
+
+  {
+    question: "The hottest place in the universe is located in which constellation?",
+    choice1: "Virgo",
+    choice2: "Pisces",
+    choice3: "Hercules",
+    choice4: "Orion",
+    answer: 1
+  },
+  {
+    question: "What is is the farthest individual star ever seen?",
+    choice1: "Sirus",
+    choice2: "Icarus",
+    choice3: "Vega",
+    choice4: "Thuban",
+    answer: 2
+  },
+  {
+    question: "What is the closest planet to earth where it rains diamonds?",
+    choice1: "Venus",
+    choice2: "Mercury",
+    choice3: "Jupiter",
+    choice4: "Saturn",
+    answer: 3
+  }
+];
+
+let availableQuestions = [...questions];
+
+
+fetch("astronomy.json").then(res => {
+  return res.json();
+}).then(loadedQuestions => {
+    questions = loadedQuestions;
+    startGame();
+});
 
 const CORRECT_BONUS = 100;
-let MAX_QUESTIONS = 3;
+let MAX_QUESTIONS = 5;
 // Make MAX_QUESTIONS selectable by user at start
 
 // Generate a clock to count
@@ -32,10 +84,9 @@ let TIME_BONUS;
 
 // set a fixed bonus to score for answering all the questions correct
 
-let PEFECTION_BONUS;
-
+// let PEFECTION_BONUS;
 // set a consecutive correct questions bonus
-let CONSECUTIVE_CORRECT_BONUS;
+// let CONSECUTIVE_CORRECT_BONUS;
 
 
 
@@ -44,11 +95,11 @@ startGame = () => {
   questionCounter = 0;
   score = 0;
   time = 0;
-  availableQuestions = [...questions];
+  // availableQuestions = [...questions];
 
   let incrementTime = () => {
     time++;
-    document.getElementById('time-display').innerHTML = time;
+    document.getElementById('time-display').innerText = time;
   }
   timer = setInterval(incrementTime, 900);
 };
@@ -137,7 +188,6 @@ incrementScore = num => {
   scoreDisplay.innerText = score;
 }
 
-startGame();
-// getting error when restart game and getNewQuestion() is called when questionIndex is null
- //add eventlistener on play again button???
+
 getNewQuestion();
+// startGame();

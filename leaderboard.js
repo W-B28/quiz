@@ -6,8 +6,10 @@ console.log(highScores);
 
 highScoresList.innerHTML = highScores
 .map(score => {
-  return `<li class="high-score">${score.name} ${score.score} ${score.provider} ${score.program}</li>`;
+  return `<li class="high-score">${score.score} ${score.name} ${score.program}</li>`;
 })
 .join("");
 
 console.log(highScoresList)
+
+// ${score.provider}
